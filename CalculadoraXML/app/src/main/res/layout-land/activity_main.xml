@@ -10,19 +10,19 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="370dp"
+        android:layout_width="323dp"
         android:layout_height="76dp"
         android:background="@null"
-        android:focusable="false"
         android:ems="10"
+        android:focusable="false"
+        android:gravity="end"
         android:hint="@string/textResultado"
         android:importantForAutofill="no"
         android:inputType="number"
         android:textColorHint="@color/black"
         android:textSize="70sp"
-        android:gravity="end"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDividir"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAC"
+        app:layout_constraintEnd_toStartOf="@+id/button7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,64 +30,64 @@
 
     <Button
         android:id="@+id/button0"
-        android:layout_width="178dp"
+        android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text0"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonComa"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSuma"
         app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <Button
         android:id="@+id/buttonComa"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/textComa"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonIgual"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button0"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
         android:id="@+id/buttonIgual"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
         android:text="@string/textCalcular"
         android:textSize="34sp"
-        android:backgroundTint="@color/colorBotonesNum"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonComa"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSuma" />
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text1"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button0"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonMultiplicar"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text2"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/button0"
+        app:layout_constraintBottom_toTopOf="@+id/buttonComa"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button1"
@@ -97,48 +97,35 @@
         android:id="@+id/button3"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text3"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/buttonComa"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSuma"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIgual"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
-        android:id="@+id/buttonSuma"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
-        android:text="@string/textSuma"
-        android:textSize="34sp"
-        android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIgual"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRestar" />
-
-    <Button
         android:id="@+id/button4"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text4"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAC"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text5"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintHorizontal_bias="0.5"
@@ -149,117 +136,131 @@
         android:id="@+id/button6"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text6"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/buttonRestar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <Button
-        android:id="@+id/buttonRestar"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
-        android:text="@string/textRestar"
-        android:textSize="34sp"
-        android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSuma"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMultiplicar" />
-
-    <Button
         android:id="@+id/button7"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text7"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAC" />
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text8"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/button9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAC" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="78dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/black"
         android:text="@string/text9"
         android:textSize="34sp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMultiplicar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCompartir" />
-
-    <Button
-        android:id="@+id/buttonMultiplicar"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
-        android:text="@string/textMultiplicar"
-        android:textSize="34sp"
-        android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRestar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDividir" />
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonAC"
-        android:layout_width="78dp"
+        android:layout_width="125dp"
         android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
         android:text="@string/textAC"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMultiplicar"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCompartir"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <Button
+        android:id="@+id/buttonRestar"
+        android:layout_width="125dp"
+        android:layout_height="76dp"
         android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCompartir"
+        android:text="@string/textRestar"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSuma"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDividir" />
+
+    <Button
+        android:id="@+id/buttonDividir"
+        android:layout_width="125dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
+        android:text="@string/textDividir"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRestar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMultiplicar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCompartir" />
+
+    <Button
+        android:id="@+id/buttonSuma"
+        android:layout_width="125dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
+        android:text="@string/textSuma"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonRestar"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMultiplicar" />
+
+    <Button
+        android:id="@+id/buttonMultiplicar"
+        android:layout_width="125dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
+        android:text="@string/textMultiplicar"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSuma"
+        app:layout_constraintEnd_toStartOf="@+id/button1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonDividir"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAC" />
+
+    <Button
+        android:id="@+id/buttonCompartir"
+        android:layout_width="125dp"
+        android:layout_height="76dp"
+        android:backgroundTint="@color/colorBotonesNum"
+        android:text="@string/textCompartir"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDividir"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <Button
-        android:id="@+id/buttonCompartir"
-        android:layout_width="178dp"
-        android:layout_height="76dp"
-        android:text="@string/textCompartir"
-        android:textSize="20sp"
-        android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDividir"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonAC"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <Button
-        android:id="@+id/buttonDividir"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
-        android:text="@string/textDividir"
-        android:textSize="34sp"
-        android:backgroundTint="@color/colorBotonesNum"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMultiplicar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonCompartir"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
