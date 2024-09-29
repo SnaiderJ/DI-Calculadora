@@ -1,5 +1,6 @@
 package com.example.calculadoracompose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,6 +18,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.calculadoracompose.ui.theme.CalculadoraComposeTheme
@@ -27,7 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CalculadoraComposeTheme {
-                Calculadora()
+                CalculadoraEstado()
             }
         }
     }
@@ -55,8 +57,28 @@ fun CrearBoton() {
 }
 
 @Preview(showBackground = true, showSystemUi = true)
+@Preview(
+    showSystemUi = true,
+    device = "spec:width=411dp,height=891dp,dpi=420,isRound=false,chinSize=0dp,orientation=landscape"
+)
+
 @Composable
-fun Calculadora() {
+fun CalculadoraEstado() {
+    val configuration = LocalConfiguration.current
+
+    when (configuration.orientation) {
+        Configuration.ORIENTATION_LANDSCAPE -> {
+            CalculadoraLandscape()
+        }
+
+        else -> {
+            CalculadoraVertical()
+        }
+
+    }
+}
+@Composable
+fun CalculadoraVertical() {
     CalculadoraComposeTheme {
 
         Column {
@@ -342,5 +364,9 @@ fun Calculadora() {
 
         }
     }
+}
+@Composable
+fun CalculadoraLandscape() {
+
 }
 
