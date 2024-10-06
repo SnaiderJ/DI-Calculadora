@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,7 +44,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ResultadoCalculadora(resultado: String, horizontal : Boolean) {
+fun ResultadoCalculadora(
+    resultado: String,
+    horizontal : Boolean,
+    altura : Int,
+    padding : Int,
+) {
     if (!horizontal) {
         Row(
             verticalAlignment = Alignment.Bottom,
@@ -59,16 +65,18 @@ fun ResultadoCalculadora(resultado: String, horizontal : Boolean) {
         }
     } else {
         Row(
-            verticalAlignment = Alignment.Bottom,
+            verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.End,
             modifier = Modifier
-                .padding(top = 20.dp)
+                .padding(padding.dp)
                 .width(400.dp)
-                .fillMaxHeight(0.25f)
+                .height(altura.dp)
+
         ) {
             Text(
+                textAlign = TextAlign.Center,
                 text = resultado,
-                fontSize = 90.sp,
+                fontSize = 80.sp,
             )
         }
     }
@@ -84,11 +92,12 @@ fun Botones(
     resultado : String,
     onTextChange: (String) -> Unit
 ){
+    val altura = 90
     if (!funciona){
         Button(
             modifier = Modifier
                 .width(weight.dp)
-                .height(70.dp)
+                .height(altura.dp)
                 .padding(5.dp),
             onClick = {
             },
@@ -103,7 +112,7 @@ fun Botones(
         Button(
             modifier = Modifier
                 .width(weight.dp)
-                .height(70.dp)
+                .height(altura.dp)
                 .padding(5.dp),
             onClick = {
                 if (text == "AC") {
@@ -139,7 +148,7 @@ fun FilaBotones(
 ) {
     Row(
         modifier = Modifier
-            .height(95.dp)
+            .height(120.dp)
     ) {
         if (!tresBotones) {
             Button(
@@ -322,10 +331,10 @@ fun FilaBotones(
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true, device = "id:pixel_8_pro")
 @Preview(
     showSystemUi = true,
-    device = "spec:width=411dp,height=891dp,dpi=420,isRound=false,chinSize=0dp,orientation=landscape"
+    device = "spec:width=448dp,height=998dp,orientation=landscape"
 )
 @Composable
 fun CalculadoraEstado() {
@@ -349,7 +358,7 @@ fun CalculadoraEstado() {
 fun CalculadoraVertical(resultado: String, onTextChange: (String) -> Unit) {
     CalculadoraComposeTheme {
         Column {
-            ResultadoCalculadora(resultado, false)
+            ResultadoCalculadora(resultado, false, 0, 0)
             FilaBotones(true, "AC", "COMPARTIR", "/",
                 "", 25, Color.Blue, Color.Cyan, resultado = resultado,
                 onTextChange = { resultado ->
@@ -382,11 +391,19 @@ fun CalculadoraVertical(resultado: String, onTextChange: (String) -> Unit) {
 @Composable
 fun CalculadoraHorizontal(resultado: String, onTextChange: (String) -> Unit) {
     CalculadoraComposeTheme {
-        val altura = 70
+        val altura = 90
         val padding = 5
-        Row {
-            Column {
-                ResultadoCalculadora(resultado, true)
+        Row (
+            modifier = Modifier.fillMaxWidth(0.96f),
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically
+        ){
+            Column (
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                ResultadoCalculadora(resultado, true, altura, padding)
                 Row (
                     modifier = Modifier
                         .padding(padding.dp)
@@ -417,7 +434,6 @@ fun CalculadoraHorizontal(resultado: String, onTextChange: (String) -> Unit) {
                 }
                 Row (
                     modifier = Modifier
-                        .padding(bottom = 10.dp)
                         .padding(padding.dp)
                         .height(altura.dp)
                 ){
@@ -431,22 +447,26 @@ fun CalculadoraHorizontal(resultado: String, onTextChange: (String) -> Unit) {
                         })
                 }
             }
-            Column {
+            Column(
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                val weight = 150
                 Row (
                     modifier = Modifier
-                        .padding(top = 32.5.dp)
                         .padding(padding.dp)
                         .height(altura.dp)
                 ){
-                    Botones("7", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("7", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("8", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("8", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("9", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("9", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
@@ -456,15 +476,15 @@ fun CalculadoraHorizontal(resultado: String, onTextChange: (String) -> Unit) {
                         .padding(padding.dp)
                         .height(altura.dp)
                 ){
-                    Botones("4", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("4", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("5", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("5", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("6", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("6", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
@@ -474,34 +494,33 @@ fun CalculadoraHorizontal(resultado: String, onTextChange: (String) -> Unit) {
                         .padding(padding.dp)
                         .height(altura.dp)
                 ){
-                    Botones("1", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("1", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("2", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("2", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("3", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("3", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
                 }
                 Row (
                     modifier = Modifier
-                        .padding(bottom = 10.dp)
                         .padding(padding.dp)
                         .height(altura.dp)
                 ){
-                    Botones("0", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones("0", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones(",", 142, 30, Color.Black, true, resultado = resultado,
+                    Botones(",", weight, 30, Color.Black, true, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
-                    Botones("=", 142, 30, Color.Gray, false, resultado = resultado,
+                    Botones("=", weight, 30, Color.Gray, false, resultado = resultado,
                         onTextChange = { resultado ->
                             onTextChange(if (resultado.length < 7) resultado else resultado.take(7))
                         })
